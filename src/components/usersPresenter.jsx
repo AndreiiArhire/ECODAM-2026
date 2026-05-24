@@ -205,7 +205,11 @@ const UserCard = ({ user }) => {
   );
 };
 
-export const UsersPresenter = ({id, title, data, isToBeSorted = false}) => {
+export const UsersPresenter = ({ id, title, data, isToBeSorted = false }) => {
+  const displayedData = isToBeSorted
+    ? [...data].sort((a, b) => a.lastName.localeCompare(b.lastName))
+    : data;
+
   return (
     <TeamContainer id={id}>
       <ResponsiveContainer>
@@ -213,13 +217,16 @@ export const UsersPresenter = ({id, title, data, isToBeSorted = false}) => {
           <Title>{title}</Title>
           {data ? (
             <MembersContainer>
-              {data
-                .sort((a, b) => isToBeSorted ? a.lastName.localeCompare(b.lastName) : 1)
-                .map((user, i) => (
-                <UserCard key={`${user.firstName}-${i}`} user={user}/>
+              {displayedData.map((user, i) => (
+                <UserCard
+                  key={`${user.firstName}-${user.lastName}-${i}`}
+                  user={user}
+                />
               ))}
             </MembersContainer>
-          ) : <ComingSoonText>Coming soon!</ComingSoonText>}
+          ) : (
+            <ComingSoonText>Coming soon!</ComingSoonText>
+          )}
         </Section>
       </ResponsiveContainer>
     </TeamContainer>

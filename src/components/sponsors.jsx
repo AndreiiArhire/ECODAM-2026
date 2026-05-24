@@ -96,7 +96,7 @@ export const Sponsors = () => {
           >
             <SponsorLogo src={process.env.PUBLIC_URL + "/img/logos/hotel_unirea_icon.jpg"} alt="Bitdefender logo"/>
           </a>
-            <SponsorTitle>Hospitability partner</SponsorTitle>
+            <SponsorTitle>Hospitality partner</SponsorTitle>
         </Card>
       </Container>
     </SponsorSection>

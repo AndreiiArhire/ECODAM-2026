@@ -13,6 +13,7 @@ const ACCENT = {
   warm: "#c89b3c",
   warmSoft: "#fff7e6",
 };
+
 const programDays = [
   {
     date: "Wednesday, June 17",
@@ -77,7 +78,7 @@ const programDays = [
           {
             time: "10:15 – 11:15",
             speaker: "Dan Simovici",
-            affiliation: "University of Massachusetts, Boston",
+            affiliation: "University of Massachusetts at Boston",
             description: "Compressibility, Mineability and Large Language Models",
           },
           {
@@ -108,7 +109,7 @@ const programDays = [
           { time: "16:00 – 16:15", description: "Coffee break" },
           {
             time: "16:15 – 18:00",
-            description: "PhD students: 3-minute thesis presentations",
+            description: "PhD students' 3-minute presentations",
           },
         ],
       },
@@ -206,9 +207,85 @@ const trackMeta = {
   },
   bio: {
     label: "BioInformatics / Applied Machine Learning",
-    subtitle: "Applied Machine Learning / BioInformatics track",
+    subtitle: "\u00A0",
   },
 };
+
+const chronologicalGlance = [
+  {
+    date: "Wednesday, June 17",
+    location: "",
+    items: [
+      { time: "15:00", title: "Registration", location: "Ferdinand Hall" },
+      { time: "16:30", title: "Session 5", location: "Ferdinand Hall" },
+      {
+        time: "18:30",
+        title: "Welcome Dinner",
+        location: "Panoramic Restaurant (Unirea Hotel)",
+      },
+    ],
+  },
+  {
+    date: "Thursday, June 18",
+    location: "Ferdinand Hall",
+    items: [
+      { time: "09:00", title: "Registration" },
+      { time: "09:30", title: "Opening Session" },
+      { time: "10:15", title: "Session 2" },
+      { time: "15:00", title: "Session 3" },
+      { time: "16:15", title: "Students’ 3-minute presentations" },
+    ],
+  },
+  {
+    date: "Friday, June 19",
+    location: "Ion Simionescu Hall",
+    items: [
+      { time: "09:30", title: "Session 4" },
+      { time: "10:45", title: "Session 6" },
+      { time: "15:00", title: "Session 7" },
+      { time: "17:15", title: "Closing Session" },
+    ],
+  },
+];
+
+
+const GlanceList = styled.div`
+  display: grid;
+  gap: 0;
+`;
+
+const GlanceItem = styled.div`
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 18px;
+  padding: 13px 0;
+  border-bottom: 1px solid #edf2f7;
+  line-height: 1.6;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+`;
+
+const GlanceDescription = styled.span`
+  color: ${ACCENT.slate};
+  font-weight: 700;
+`;
+
+const GlanceLocation = styled.span`
+  color: ${ACCENT.muted};
+  font-style: italic;
+  font-weight: 600;
+`;
+
+const GlanceSession = styled.strong`
+  color: ${ACCENT.slate};
+`;
 
 const SectionContainer = styled.section`
   padding: 100px 20px;
@@ -218,7 +295,7 @@ const SectionContainer = styled.section`
 `;
 
 const ProgramContainer = styled.div`
-  max-width: 1040px;
+  max-width: 1180px;
   margin: 0 auto;
   color: ${ACCENT.slate};
 `;
@@ -326,35 +403,54 @@ const ToggleButton = styled.button`
 
 const SummaryGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  margin-bottom: 30px;
+  grid-template-columns: 0.85fr 1fr 1.25fr 1.9fr;
+  gap: 18px;
+  margin: 0 auto 34px;
+  max-width: 1180px;
 
-  @media (max-width: 820px) {
+  @media (max-width: 980px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: 560px) {
     grid-template-columns: 1fr;
   }
 `;
 
 const SummaryCard = styled.div`
+  min-height: 104px;
   border: 1px solid ${ACCENT.border};
   border-radius: 22px;
-  background: rgba(255, 255, 255, 0.88);
-  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 18px 20px;
   box-shadow: 0 14px 30px rgba(31, 41, 55, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  white-space: nowrap;
 `;
 
-const SummaryNumber = styled.div`
+const SummaryNumber = styled.span`
   color: ${ACCENT.blue};
-  font-size: 30px;
-  font-weight: 900;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(32px, 2.5vw, 38px);
+  font-weight: 700;
   line-height: 1;
+  margin-right: 10px;
 `;
 
-const SummaryLabel = styled.div`
-  margin-top: 8px;
-  color: ${ACCENT.muted};
-  font-size: 14px;
-  font-weight: 700;
+const SummaryNumberGhost = styled(SummaryNumber)`
+  visibility: hidden;
+`;
+
+const SummaryLabel = styled.span`
+  color: ${ACCENT.blueDark};
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(16px, 1.2vw, 19px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 0.005em;
 `;
 
 const DayCard = styled.article`
@@ -629,29 +725,33 @@ export const Program = () => {
         <ProgramAnchor id="program" />
 
         <Header>
-	  <Title>ECODAM 2026 Programme</Title>
+          <Title>ECODAM 2026 Programme</Title>
 
-	  <DownloadLink href={allProgram} target="_blank" rel="noopener noreferrer">
-	    (Download detailed program & abstracts)
-	  </DownloadLink>
-	</Header>
+          <DownloadLink href={allProgram} target="_blank" rel="noopener noreferrer">
+            (Download detailed program & abstracts)
+          </DownloadLink>
+        </Header>
 
         <SummaryGrid>
-	  <SummaryCard>
-	    <SummaryNumber>3</SummaryNumber>
-	    <SummaryLabel>conference days</SummaryLabel>
-	  </SummaryCard>
+          <SummaryCard>
+            <SummaryNumber>3</SummaryNumber>
+            <SummaryLabel>days</SummaryLabel>
+          </SummaryCard>
 
-	  <SummaryCard>
-	    <SummaryNumber>6</SummaryNumber>
-	    <SummaryLabel>thematic sessions</SummaryLabel>
-	  </SummaryCard>
+          <SummaryCard>
+            <SummaryNumber>6</SummaryNumber>
+            <SummaryLabel>sessions</SummaryLabel>
+          </SummaryCard>
 
-	  <SummaryCard>
-	    <SummaryNumber>{allTalks}</SummaryNumber>
-	    <SummaryLabel>speaker presentations</SummaryLabel>
-	  </SummaryCard>
-	</SummaryGrid>
+          <SummaryCard>
+            <SummaryNumber>{allTalks}</SummaryNumber>
+            <SummaryLabel>presentations</SummaryLabel>
+          </SummaryCard>
+
+          <SummaryCard>
+            <SummaryLabel>PhD students' 3-minute presentations</SummaryLabel>
+          </SummaryCard>
+        </SummaryGrid>
 
         <Controls aria-label="Programme view selector">
           <ToggleButton
@@ -659,8 +759,9 @@ export const Program = () => {
             $active={view === "chronological"}
             onClick={() => setView("chronological")}
           >
-            Chronological view
+            A chronological glance
           </ToggleButton>
+
           <ToggleButton
             type="button"
             $active={view === "tracks"}
@@ -671,37 +772,36 @@ export const Program = () => {
         </Controls>
 
         {view === "chronological" && (
-          <>
-            {programDays.map((day) => (
-              <DayCard key={day.date}>
-                <DayHeader>
-                  <div>
-                    <DayTitle>{day.date}</DayTitle>
-                    <Location>{day.location}</Location>
-                  </div>
-                </DayHeader>
+	  <>
+	    {chronologicalGlance.map((day) => (
+	      <DayCard key={day.date}>
+		<DayHeader>
+		  <div>
+		    <DayTitle>{day.date}</DayTitle>
+		    {day.location && <Location>{day.location}</Location>}
+		  </div>
+		</DayHeader>
 
-                <Timeline>
-                  {day.sessions.map((session) => (
-                    <SessionBlock key={`${day.date}-${session.title}`}>
-                      <SessionTitle>{session.title}</SessionTitle>
-                      {session.track && <Track>{session.track}</Track>}
-
-                      <SessionList>
-                        {session.items.map((item) => (
-                          <SessionItem key={`${item.time}-${item.description}`}>
-                            <Time>{item.time}</Time>
-                            <span>{renderDescription(item)}</span>
-                          </SessionItem>
-                        ))}
-                      </SessionList>
-                    </SessionBlock>
-                  ))}
-                </Timeline>
-              </DayCard>
-            ))}
-          </>
-        )}
+		<GlanceList>
+		  {day.items.map((item) => (
+			  <GlanceItem key={`${day.date}-${item.time}-${item.title}`}>
+			    <Time>{item.time}</Time>
+			    <GlanceDescription>
+			      {item.title}
+			      {item.location && (
+				<>
+				  {" – "}
+				  <GlanceLocation>{item.location}</GlanceLocation>
+				</>
+			      )}
+			    </GlanceDescription>
+			  </GlanceItem>
+			))}
+		</GlanceList>
+	      </DayCard>
+	    ))}
+	  </>
+	)}
 
         {view === "tracks" && (
           <TrackGrid>
