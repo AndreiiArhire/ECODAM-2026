@@ -52,10 +52,10 @@ function App() {
         <div style={{ color: "#28679c", marginTop: "-50px" }}>Doctoral Summer School on</div>
         <div style={{ color: "#28679c" }}>Evolutionary Computing,</div>
         <div style={{ color: "#28679c" }}>Optimisation and Data Mining</div>
-        <div style={{ fontSize: "large", fontWeight: "bold", fontStyle: "italic", marginTop: "10px", color: "#28679c"   }}>June 17-19, 2026</div>
+        <div style={{ fontSize: "large", fontWeight: "bold", fontStyle: "italic", marginTop: "10px", color: "#28679c"   }}>17–19 June</div>
         <div style={{ fontSize: "large", marginTop: "10px", color: "#28679c"  }}>21 years, 19 editions</div></>} paragraph={" "} />
       <Vision />
-      <UsersPresenter id={"speakers"} title={"Speakers"} data={speakers} />
+      <UsersPresenter id={"speakers"} title={"Invited Speakers"} data={speakers} />
       <UsersPresenter id={"workshop_speakers"} title={"Workshop Speakers"} data={workshop_speakers} />
       <Program />
       <UsersPresenter id={"participants"} title={"Participants"} data={participants} />

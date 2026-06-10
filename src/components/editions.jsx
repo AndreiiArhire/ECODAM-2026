@@ -43,7 +43,7 @@ export const Editions = () => {
             <br/>
             <br/>
             <Container>
-                <a href="https://events.info.uaic.ro/summer-school/" target="_blank" rel="noopener noreferrer">
+                <a href="https://events.info.uaic.ro/summer-school/2025/" target="_blank" rel="noopener noreferrer">
                     ECODAM 2025
                 </a>
             </Container>

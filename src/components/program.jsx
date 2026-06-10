@@ -142,20 +142,20 @@ const programDays = [
           {
             time: "10:45 – 11:15",
             speaker: "Andi Munteanu",
-            affiliation: "PhD student, University of Iasi; RA, Core Bioinformatics Group",
+            affiliation: "PhD student, University of Iasi; Intern, Core Bioinformatics Group",
             description:
               "PIGEN: Genetic Algorithms in the context of Gene Regulatory Networks",
           },
           {
             time: "11:15 – 11:45",
             speaker: "Cristian Bulgaru",
-            affiliation: "MSc student, University of Iasi; RA, Core Bioinformatics Group",
+            affiliation: "Intern, Core Bioinformatics Group",
             description: "CANARD: the epigenetics angle",
           },
           {
             time: "11:45 – 12:15",
             speaker: "Şerban Doncean",
-            affiliation: "PhD student, University of Iasi; intern, Core Bioinformatics Group",
+            affiliation: "PhD student, University of Iasi; Intern, Core Bioinformatics Group",
             description: "FALCON: Gene Regulatory Network driven batch correction",
           },
           {
@@ -172,13 +172,13 @@ const programDays = [
           {
             time: "15:00 – 15:30",
             speaker: "Ioana Hanus",
-            affiliation: "MSc student, University of Iasi; RA, Core Bioinformatics Group",
+            affiliation: "MSc student, University of Iasi; Intern, Core Bioinformatics Group",
             description: "RAVEN: graph properties overlaid on Gene Regulatory Networks",
           },
           {
             time: "15:30 – 16:00",
             speaker: "Samira Enache",
-            affiliation: "MSc student, University of Iasi; RA, Core Bioinformatics Group",
+            affiliation: "MSc student, University of Iasi; Intern, Core Bioinformatics Group",
             description: "HERON: defining covariation",
           },
           { time: "16:00 – 16:15", description: "Coffee break" },
@@ -745,7 +745,7 @@ export const Program = () => {
 
           <SummaryCard>
             <SummaryNumber>{allTalks}</SummaryNumber>
-            <SummaryLabel>presentations</SummaryLabel>
+            <SummaryLabel> invited speakers and workshop speakers</SummaryLabel>
           </SummaryCard>
 
           <SummaryCard>

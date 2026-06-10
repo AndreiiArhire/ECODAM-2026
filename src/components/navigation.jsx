@@ -60,7 +60,7 @@ export const Navigation = () => {
             </li>
             <li>
               <a href="#speakers" className="page-scroll">
-                Speakers
+                Invited Speakers
               </a>
             </li>
             <li>

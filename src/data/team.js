@@ -153,17 +153,24 @@ export const volunteers = [
      image: process.env.PUBLIC_URL + "/img/team/oriana_onicescu.jpg",
      firstName: "Oriana",
      lastName: "Onicescu",
-     role: "Organizer",
      school: "Alexandru Ioan Cuza University of Iaşi",
     linkedin: "https://www.linkedin.com/in/orianaonicescu/",
     scholar: "https://scholar.google.com/citations?user=M7rvp9YAAAAJ&hl=en",
      
    },
    {
+     image: process.env.PUBLIC_URL + "/img/team/laura_cornei.jpeg",
+     firstName: "Laura",
+     lastName: "Cornei",
+     school: "Alexandru Ioan Cuza University of Iaşi",
+    scholar: "https://scholar.google.ro/citations?user=8DEBjM0AAAAJ&hl=en",
+     
+   },
+   
+   {
     img: process.env.PUBLIC_URL + "/img/team/profile-icon.png",
     firstName: "Andrei",
     lastName: "Arhire",
-    role: "Volunteer",
     school: "Alexandru Ioan Cuza University of Iaşi",
     linkedin: "https://www.linkedin.com/in/andrei-arhire-a86280207/",
     scholar: "https://scholar.google.com/citations?user=BYkEZGFPq1wC&hl=en",
@@ -172,15 +179,13 @@ export const volunteers = [
     img: process.env.PUBLIC_URL + "/img/team/profile-icon.png",
     firstName: "Gabriela",
     lastName: "Simco",
-    role: "Volunteer",
     school: "Alexandru Ioan Cuza University of Iaşi",
     linkedin: "https://www.linkedin.com/in/gabrielasimco/"
   },
   {
-    img: process.env.PUBLIC_URL + "/img/team/profile-icon.png",
+    img: process.env.PUBLIC_URL + "/img/team/dumitrita_sorohan.jpeg",
     firstName: "Dumitrita",
     lastName: "Sorohan",
-    role: "Volunteer",
     school: "Alexandru Ioan Cuza University of Iaşi",
     linkedin: "https://www.linkedin.com/in/dumitrita-sorohan-3a680834b/"
   },
